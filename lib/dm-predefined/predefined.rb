@@ -34,7 +34,7 @@ module DataMapper
 
         predefined_attributes[name] = attributes
 
-        class_eval %{
+        module_eval %{
           def #{name}
             predefined(:#{name})
           end
