@@ -1,3 +1,5 @@
+require 'dm-predefined/exceptions/unknown_resource'
+
 module DataMapper
   module Predefined
 
@@ -10,7 +12,14 @@ module DataMapper
     end
 
     module ClassMethods
-      def predefined(name)
+      def [](name)
+        name = name.to_sym
+        attributes = predefined_attributes[name]
+
+        unless attributes
+          raise(UnknownResource,"the resource '#{name}' was not predefined",caller)
+        end
+
         first_or_create(predefined_attributes[name.to_sym])
       end
 
