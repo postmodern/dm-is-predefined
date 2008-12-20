@@ -10,7 +10,7 @@ module DataMapper
 
     def is_predefined
       # Add class-methods
-      base.extend  DataMapper::Predefined::ClassMethods
+      extend  DataMapper::Predefined::ClassMethods
     end
 
     module ClassMethods
@@ -36,9 +36,9 @@ module DataMapper
 
         predefined_attributes[name] = attributes
 
-        module_eval %{
-          def #{name}
-            predefined(:#{name})
+        class_eval %{
+          def self.#{name}
+            self[:#{name}]
           end
         }
 
