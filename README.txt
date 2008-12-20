@@ -6,11 +6,37 @@
 
 == DESCRIPTION:
 
-A DataMapper plugin to add predefined resources to a Model.
+A DataMapper plugin for adding predefined resources to Models.
 
 == FEATURES:
 
 == EXAMPLES:
+
+  require 'dm-core'
+  require 'dm-predefined'
+  
+  class Licence
+  
+    include DataMapper::Resource
+    
+    is :predefined
+    
+    # Name of the Licence
+    property :name, String
+    
+    # URL to the licence
+    property :url, String
+    
+    define :gpl2, :name => 'GPL-2', :url => 'http://www.gnu.org/copyleft/gpl.html'
+    define :mit, :name => 'MIT'
+  
+  end
+  
+  Licence.gpl2
+  # => #<Licence: id: 1, name: "GPL-2", url: "http://www.gnu.org/copyleft/gpl.html">
+  
+  Licence[:mit]
+  # => #<Licence: id: 2, name: "MIT">
 
 == INSTALL:
 
