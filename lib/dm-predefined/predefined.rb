@@ -11,24 +11,24 @@ module DataMapper
 
     module ClassMethods
       def predefined(name)
-        first_or_create(defined_resources[name.to_sym])
+        first_or_create(predefined_attributes[name.to_sym])
       end
 
       protected
 
-      def defined_resources
-        @@defined_resources ||= {}
+      def predefined_attributes
+        @@predefined_attributes ||= {}
       end
 
       def define(name,attributes={})
         name = name.to_sym
 
-        defined_resources[name] = attributes
+        predefined_attributes[name] = attributes
 
         class_eval %{
-            def #{name}
-              predefined(:#{name})
-            end
+          def #{name}
+            predefined(:#{name})
+          end
         }
 
         attributes
