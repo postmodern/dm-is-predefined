@@ -2,11 +2,13 @@ require 'dm-predefined/exceptions/unknown_resource'
 
 module DataMapper
   module Predefined
-
     ##
     # fired when your plugin gets included into Resource
     #
     def self.included(base)
+    end
+
+    def is_predefined
       # Add class-methods
       base.extend  DataMapper::Predefined::ClassMethods
     end
