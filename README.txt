@@ -1,7 +1,7 @@
-= dm-is-predefined
+= dm-predefined
 
-* http://dm-is-predefined.rubyforge.org/
-* https://github.com/postmodern/dm-is-predefined
+* http://dm-predefined.rubyforge.org/
+* https://github.com/postmodern/dm-predefined
 * Postmodern (postmodern.mod3 at gmail.com)
 
 == DESCRIPTION:
@@ -14,7 +14,7 @@ A DataMapper plugin to add predefined resources to a Model.
 
 == INSTALL:
 
-  $ sudo gem install dm-is-predefined
+  $ sudo gem install dm-predefined
 
 == LICENSE:
 

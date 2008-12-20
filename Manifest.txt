@@ -4,9 +4,9 @@ Manifest.txt
 README.txt
 Rakefile
 TODO.txt
-lib/dm-is-predefined.rb
-lib/dm-is-predefined/is/predefined.rb
-lib/dm-is-predefined/is/version.rb
+lib/dm-predefined.rb
+lib/dm-predefined/predefined.rb
+lib/dm-predefined/version.rb
 spec/integration/predefined_spec.rb
 spec/spec.opts
 spec/spec_helper.rb
