@@ -33,8 +33,10 @@ module DataMapper
         predefined_attributes[name.to_sym] = attributes
 
         class_eval %{
-          define_method(#{name.dump}) do
-            self[#{name.dump}]
+          class << self
+            define_method(#{name.dump}) do
+              self[#{name.dump}]
+            end
           end
         }
 
