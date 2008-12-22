@@ -6,11 +6,7 @@ module DataMapper
     # fired when your plugin gets included into Resource
     #
     def self.included(base)
-    end
-
-    def is_predefined
-      # Add class-methods
-      extend  DataMapper::Predefined::ClassMethods
+      base.extend DataMapper::Predefined::ClassMethods
     end
 
     module ClassMethods
