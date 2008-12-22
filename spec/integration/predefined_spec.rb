@@ -42,7 +42,7 @@ if (HAS_SQLITE3 || HAS_MYSQL || HAS_POSTGRES)
       test1.body.should == %{This is a test.}
     end
 
-    it "should it be able to define resources with empty attributes" do
+    it "should be able to define resources with empty attributes" do
       test2 = TestModel.test2
 
       test2.should_not be_nil
