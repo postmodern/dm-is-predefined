@@ -1,7 +1,7 @@
 = dm-predefined
 
 * http://dm-predefined.rubyforge.org/
-* https://github.com/postmodern/dm-predefined
+* http://github.com/postmodern/dm-predefined
 * Postmodern (postmodern.mod3 at gmail.com)
 
 == DESCRIPTION:
