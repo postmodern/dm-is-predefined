@@ -52,6 +52,13 @@ if (HAS_SQLITE3 || HAS_MYSQL || HAS_POSTGRES)
       test2.body.should be_nil
     end
 
+    it "should return existing resources" do
+      first_test1 = TestModel.test1
+      second_test1 = TestModel.test1
+
+      first_test1.id.should == second_test1.id
+    end
+
     it "should provide a generic interface for accessing resources" do
       test1 = TestModel[:test1]
 
