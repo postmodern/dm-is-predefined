@@ -7,8 +7,7 @@ if (HAS_SQLITE3 || HAS_MYSQL || HAS_POSTGRES)
       class TestModel
 
         include DataMapper::Resource
-
-        is :predefined
+        include DataMapper::Predefined
 
         # Name property to test String values
         property :name, String
