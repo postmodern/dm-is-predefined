@@ -8,8 +8,6 @@
 
 A DataMapper plugin for adding predefined resources to Models.
 
-== FEATURES:
-
 == EXAMPLES:
 
   require 'dm-core'
@@ -18,8 +16,7 @@ A DataMapper plugin for adding predefined resources to Models.
   class Licence
   
     include DataMapper::Resource
-    
-    is :predefined
+    include DataMapper::Predefined
     
     # Name of the Licence
     property :name, String
