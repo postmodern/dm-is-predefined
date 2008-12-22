@@ -28,13 +28,13 @@ module DataMapper
       end
 
       def define(name,attributes={})
-        name = name.to_sym
+        name = name.to_s
 
-        predefined_attributes[name] = attributes
+        predefined_attributes[name.to_sym] = attributes
 
         class_eval %{
-          def self.#{name}
-            self[:#{name}]
+          define_method(#{name.dump}) do
+            self[#{name.dump}]
           end
         }
 
