@@ -32,7 +32,7 @@ if (HAS_SQLITE3 || HAS_MYSQL || HAS_POSTGRES)
       TestModel.auto_migrate!
     end
 
-    it "should it be able to define resources of a Model" do
+    it "should be able to define resources of a Model" do
       test1 = TestModel.test1
 
       test1.should_not be_nil
