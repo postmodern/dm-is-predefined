@@ -1,3 +1,4 @@
-=== 0.0.1 / 2008-12-07
+=== 0.0.1 / 2008-12-21
 
-* No changes this version
+* Initial release.
+
