@@ -9,5 +9,4 @@ lib/dm-predefined/predefined.rb
 lib/dm-predefined/version.rb
 lib/dm-predefined/exceptions/unknown_resource.rb
 spec/integration/predefined_spec.rb
-spec/spec.opts
 spec/spec_helper.rb
