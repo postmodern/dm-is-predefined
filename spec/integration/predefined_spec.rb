@@ -1,34 +1,9 @@
-require 'pathname'
-require Pathname(__FILE__).dirname.expand_path.parent + 'spec_helper'
+require 'spec_helper'
+require 'integration/helpers/test_model'
 
 if (HAS_SQLITE3 || HAS_MYSQL || HAS_POSTGRES)
-  describe 'DataMapper::Predefined' do
+  describe DataMapper::Predefined do
     before(:all) do
-      class TestModel
-
-        include DataMapper::Resource
-        include DataMapper::Predefined
-
-        # Name property to test String values
-        property :name, String
-
-        # Number property to test Integer values
-        property :number, Integer
-
-        # Optional property to test default values
-        property :optional, String, :default => 'hello'
-
-        # Body property to test Text values
-        property :body, Text
-
-        define :test1, :name => 'test1',
-                       :number => 1,
-                       :optional => 'yo',
-                       :body => %{This is a test.}
-
-        define :test2, :name => 'test2', :number => 2
-      end
-
       TestModel.auto_migrate!
     end
 
