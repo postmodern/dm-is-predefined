@@ -18,7 +18,7 @@ module DataMapper
           raise(UnknownResource,"the resource '#{name}' was not predefined",caller)
         end
 
-        first_or_create(predefined_attributes[name.to_sym])
+        first_or_create(attributes)
       end
 
       protected
