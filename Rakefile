@@ -5,7 +5,7 @@ require 'hoe'
 require './tasks/spec.rb'
 require './lib/dm-predefined/version.rb'
 
-Hoe.new('dm-predefined', DataMapper::Predefined::VERSION) do |p|
+Hoe.spec('dm-predefined') do |p|
   p.rubyforge_name = 'dm-predefined'
   p.developer('Postmodern','postmodern.mod3@gmail.com')
   p.remote_rdoc_dir = ''
