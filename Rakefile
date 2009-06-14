@@ -6,11 +6,11 @@ require 'hoe/signing'
 require './tasks/spec.rb'
 require './lib/dm-predefined/version.rb'
 
-Hoe.spec('dm-predefined') do |p|
-  p.rubyforge_name = 'dm-predefined'
-  p.developer('Postmodern','postmodern.mod3@gmail.com')
-  p.remote_rdoc_dir = ''
-  p.extra_deps = [['dm-core', '>=0.10.0']]
+Hoe.spec('dm-predefined') do
+  self.rubyforge_name = 'dm-predefined'
+  self.developer('Postmodern','postmodern.mod3@gmail.com')
+  self.remote_rdoc_dir = ''
+  self.extra_deps = [['dm-core', '>=0.10.0']]
 end
 
 # vim: syntax=Ruby
