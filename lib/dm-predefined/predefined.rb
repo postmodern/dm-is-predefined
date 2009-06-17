@@ -15,13 +15,13 @@ module DataMapper
       #
       def [](name)
         name = name.to_sym
-        attributes = predefined_attributes[name]
+        attributes = self.predefined_attributes[name]
 
         unless attributes
           raise(UnknownResource,"the resource '#{name}' was not predefined",caller)
         end
 
-        first_or_create(attributes)
+        self.first_or_create(attributes)
       end
 
       protected
@@ -42,7 +42,7 @@ module DataMapper
       def define(name,attributes={})
         name = name.to_s
 
-        predefined_attributes[name.to_sym] = attributes
+        self.predefined_attributes[name.to_sym] = attributes
 
         class_eval %{
           class << self
