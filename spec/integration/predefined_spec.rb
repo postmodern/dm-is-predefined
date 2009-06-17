@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'integration/helpers/test_model'
+require 'integration/models/test_model'
 
 if (HAS_SQLITE3 || HAS_MYSQL || HAS_POSTGRES)
   describe DataMapper::Predefined do
