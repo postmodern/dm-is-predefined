@@ -19,9 +19,9 @@ class TestModel
   property :body, Text
 
   define :test1, :name => 'test1',
-    :number => 1,
-    :optional => 'yo',
-    :body => %{This is a test.}
+                 :number => 1,
+                 :optional => 'yo',
+                 :body => %{This is a test.}
 
   define :test2, :name => 'test2', :number => 2
 
