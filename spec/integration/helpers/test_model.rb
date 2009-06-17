@@ -3,6 +3,9 @@ class TestModel
   include DataMapper::Resource
   include DataMapper::Predefined
 
+  # Primary key of the test model
+  property :id, Serial
+
   # Name property to test String values
   property :name, String
 
