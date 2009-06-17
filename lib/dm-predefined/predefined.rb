@@ -10,6 +10,15 @@ module DataMapper
     end
 
     module ClassMethods
+      def self.extended(obj)
+        obj.instance_eval do
+          @@predefined_attributes = {}
+        end
+      end
+
+      #
+      # Returns the pre-defined model with the specified _name_.
+      #
       def [](name)
         name = name.to_sym
         attributes = predefined_attributes[name]
@@ -23,10 +32,17 @@ module DataMapper
 
       protected
 
+      #
+      # Returns the Hash of predefined models and their attributes.
+      #
       def predefined_attributes
-        @@predefined_attributes ||= {}
+        @@predefined_attributes
       end
 
+      #
+      # Defines a new predefined model with the specified _name_ and
+      # the given _attributes_.
+      #
       def define(name,attributes={})
         name = name.to_s
 
