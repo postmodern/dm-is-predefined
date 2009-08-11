@@ -18,11 +18,11 @@ class TestModel
   # Body property to test Text values
   property :body, Text
 
-  define :test1, :name => 'test1',
-                 :number => 1,
-                 :optional => 'yo',
-                 :body => %{This is a test.}
+  predefine :test1, :name => 'test1',
+                    :number => 1,
+                    :optional => 'yo',
+                    :body => %{This is a test.}
 
-  define :test2, :name => 'test2', :number => 2
+  predefine :test2, :name => 'test2', :number => 2
 
 end

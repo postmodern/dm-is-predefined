@@ -39,7 +39,7 @@ module DataMapper
       # Defines a new predefined model with the specified _name_ and
       # the given _attributes_.
       #
-      def define(name,attributes={})
+      def predefine(name,attributes={})
         name = name.to_s
 
         self.predefined_attributes[name.to_sym] = attributes

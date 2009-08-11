@@ -24,8 +24,11 @@ A DataMapper plugin for adding predefined resources to Models.
     # URL to the licence
     property :url, String
     
-    define :gpl2, :name => 'GPL-2', :url => 'http://www.gnu.org/copyleft/gpl.html'
-    define :mit, :name => 'MIT'
+    predefine :gpl2,
+              :name => 'GPL-2',
+              :url => 'http://www.gnu.org/copyleft/gpl.html'
+
+    predefine :mit, :name => 'MIT'
   
   end
   
