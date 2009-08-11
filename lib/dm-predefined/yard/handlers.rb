@@ -1,1 +1,1 @@
-require 'dm-predefine/yard/handlers/ruby'
+require 'dm-predefined/yard/handlers/ruby'
