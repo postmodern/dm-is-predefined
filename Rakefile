@@ -4,6 +4,7 @@ require 'rubygems'
 require 'hoe'
 require 'hoe/signing'
 require './tasks/spec.rb'
+require './tasks/yard.rb'
 require './lib/dm-predefined/version.rb'
 
 Hoe.spec('dm-predefined') do
