@@ -9,7 +9,6 @@ module YARD
 
         def process
           nobj = namespace
-          mscope = scope
           name = if statement.type == :predefine
                    statement.jump(:ident, :op, :kw, :const).source
                  elsif statement.call?
@@ -23,7 +22,7 @@ module YARD
                    end
                  end
 
-          register MethodObject.new(nobj, name, mscope) do |o|
+          register MethodObject.new(nobj, name, :class) do |o|
             o.visibility = :public
             o.source = statement.source
             o.signature = "def #{nobj}.#{name}"
