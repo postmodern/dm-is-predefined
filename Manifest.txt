@@ -5,9 +5,13 @@ README.txt
 Rakefile
 TODO.txt
 lib/dm-predefined.rb
+lib/dm-predefined/exceptions/unknown_resource.rb
 lib/dm-predefined/predefined.rb
 lib/dm-predefined/version.rb
-lib/dm-predefined/exceptions/unknown_resource.rb
+lib/dm-predefined/yard.rb
+lib/dm-predefined/yard/handlers.rb
+lib/dm-predefined/yard/handlers/ruby.rb
+lib/dm-predefined/yard/handlers/ruby/predefine_handler.rb
 spec/integration/models/test_model.rb
 spec/integration/predefined_spec.rb
 spec/spec_helper.rb
