@@ -11,7 +11,10 @@ Hoe.spec('dm-predefined') do
   self.rubyforge_name = 'dm-predefined'
   self.developer('Postmodern','postmodern.mod3@gmail.com')
   self.remote_rdoc_dir = ''
-  self.extra_deps = [['dm-core', '>=0.10.0']]
+  self.extra_deps = [
+    ['yard', '>=0.2.3.4'],
+    ['dm-core', '>=0.10.0']
+  ]
 end
 
 # vim: syntax=Ruby
