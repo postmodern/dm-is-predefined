@@ -10,7 +10,7 @@ module YARD
         def process
           nobj = namespace
           mscope = scope
-          name = if statement.type == :scanner
+          name = if statement.type == :predefine
                    statement.jump(:ident, :op, :kw, :const).source
                  elsif statement.call?
                    obj = statement.parameters(false).first
