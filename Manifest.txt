@@ -12,6 +12,8 @@ lib/dm-predefined/yard.rb
 lib/dm-predefined/yard/handlers.rb
 lib/dm-predefined/yard/handlers/ruby.rb
 lib/dm-predefined/yard/handlers/ruby/predefine_handler.rb
+lib/dm-predefined/yard/handlers/ruby/legacy.rb
+lib/dm-predefined/yard/handlers/ruby/legacy/predefine_handler.rb
 spec/integration/models/test_model.rb
 spec/integration/predefined_spec.rb
 spec/spec_helper.rb
