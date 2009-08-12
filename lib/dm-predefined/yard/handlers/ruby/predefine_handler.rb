@@ -5,7 +5,7 @@ module YARD
     module Ruby
       class PredefineHandler < Base
 
-        handles :predefine, method_call(:predefine)
+        handles method_call(:predefine)
 
         def process
           nobj = namespace
