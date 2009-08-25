@@ -16,6 +16,10 @@ Hoe.spec('dm-predefined') do
     ['dm-core', '>=0.10.0']
   ]
 
+  self.extra_dev_deps = [
+    ['rspec', '>=1.2.6']
+  ]
+
   self.spec_extras = {:has_rdoc => 'yard'}
 end
 
