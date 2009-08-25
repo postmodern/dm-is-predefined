@@ -15,6 +15,8 @@ Hoe.spec('dm-predefined') do
     ['yard', '>=0.2.3.4'],
     ['dm-core', '>=0.10.0']
   ]
+
+  self.spec_extras = {:has_rdoc => 'yard'}
 end
 
 # vim: syntax=Ruby
