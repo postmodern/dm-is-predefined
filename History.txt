@@ -1,3 +1,11 @@
+=== 0.1.2 / 2009-09-21
+
+* Require Hoe >= 2.3.3.
+* Require YARD >= 0.2.3.5.
+* Require dm-core >= 0.10.0.
+* Moved to YARD based documentation.
+* Added YARD handlers for documenting +predefine+ method-calls.
+
 === 0.1.1 / 2009-01-17
 
 * Fixed specs to work with RSpec 1.1.12.
