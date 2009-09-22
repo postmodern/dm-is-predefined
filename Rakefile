@@ -11,7 +11,7 @@ Hoe.spec('dm-predefined') do
   self.developer('Postmodern','postmodern.mod3@gmail.com')
   self.remote_rdoc_dir = ''
   self.extra_deps = [
-    ['yard', '>=0.2.3.4'],
+    ['yard', '>=0.2.3.5'],
     ['dm-core', '>=0.10.0']
   ]
 
