@@ -5,6 +5,7 @@
 * Require dm-core >= 0.10.0.
 * Moved to YARD based documentation.
 * Added YARD handlers for documenting +predefine+ method-calls.
+* Renamed Predefined.predefined to Predefined.predefine.
 
 === 0.1.1 / 2009-01-17
 
