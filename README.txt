@@ -38,6 +38,10 @@ A DataMapper plugin for adding predefined resources to Models.
   Licence[:mit]
   # => #<Licence: id: 2, name: "MIT">
 
+== REQUIREMENTS:
+
+* {YARD}[http://yard.soen.ca/] >= 0.2.3.5
+
 == INSTALL:
 
   $ sudo gem install dm-predefined
