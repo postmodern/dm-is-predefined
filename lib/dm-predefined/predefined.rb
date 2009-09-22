@@ -2,8 +2,8 @@ require 'dm-predefined/exceptions/unknown_resource'
 
 module DataMapper
   module Predefined
-    ##
-    # fired when your plugin gets included into Resource
+    #
+    # Fired when your plugin gets included into Resource.
     #
     def self.included(base)
       base.extend DataMapper::Predefined::ClassMethods
@@ -11,7 +11,13 @@ module DataMapper
 
     module ClassMethods
       #
-      # Returns the pre-defined model with the specified _name_.
+      # Finds or auto-creates the pre-defined resource with the given name.
+      #
+      # @param [Symbol, String] name
+      #   The name of the pre-defined resource.
+      #
+      # @return [Object]
+      #   The pre-defined resource.
       #
       def [](name)
         name = name.to_sym
@@ -29,15 +35,26 @@ module DataMapper
       @@predefined_attributes = {}
 
       #
-      # Returns the Hash of predefined models and their attributes.
+      # All pre-defined resources of the model.
+      #
+      # @return [Hash{Symbol => Hash}]
+      #   The Hash of pre-defined resources and their attributes.
       #
       def predefined_attributes
         @@predefined_attributes
       end
 
       #
-      # Defines a new predefined model with the specified _name_ and
-      # the given _attributes_.
+      # Defines a new pre-defined resource for the model.
+      #
+      # @param [Symbol, String] name
+      #   The name of the pre-defined resource.
+      #
+      # @param [Hash] attributes
+      #   The attributes for the pre-defined resource.
+      #
+      # @return [Hash]
+      #   The attributes that will be assigned to the pre-defined resource.
       #
       def predefine(name,attributes={})
         name = name.to_s
