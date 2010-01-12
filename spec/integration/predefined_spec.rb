@@ -35,7 +35,7 @@ if (HAS_SQLITE3 || HAS_MYSQL || HAS_POSTGRES)
     end
 
     it "should provide a generic interface for accessing resources" do
-      test1 = TestModel[:test1]
+      test1 = TestModel.predefined_resource(:test1)
 
       test1.name.should == 'test1'
       test1.number.should == 1
@@ -43,7 +43,7 @@ if (HAS_SQLITE3 || HAS_MYSQL || HAS_POSTGRES)
 
     it "should raise an UnknownResource exception when accessing undefined resources" do
       lambda {
-        TestModel[:test3]
+        TestModel.predefined_resource(:test3)
       }.should raise_error(DataMapper::Predefined::UnknownResource)
     end
   end
