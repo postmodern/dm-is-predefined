@@ -1,9 +1,7 @@
-History.txt
-LICENSE.txt
+History.rdoc
 Manifest.txt
-README.txt
+README.rdoc
 Rakefile
-TODO.txt
 lib/dm-predefined.rb
 lib/dm-predefined/exceptions/unknown_resource.rb
 lib/dm-predefined/predefined.rb
