@@ -43,8 +43,7 @@ A DataMapper plugin for adding predefined resources to Models.
 
 == REQUIREMENTS:
 
-* {dm-core}[http://github.com/datamapper/dm-core/] >= 0.10.0
-* {YARD}[http://yard.soen.ca/] >= 0.2.3.5
+* {dm-core}[http://github.com/datamapper/dm-core/] >= 0.10.2
 
 == INSTALL:
 
