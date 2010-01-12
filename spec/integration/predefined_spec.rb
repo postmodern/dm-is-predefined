@@ -7,6 +7,10 @@ if (HAS_SQLITE3 || HAS_MYSQL || HAS_POSTGRES)
       TestModel.auto_migrate!
     end
 
+    it "should provide the names of all predefined resources of a Model" do
+      TestModel.predefined.should =~ [:test1, :test2]
+    end
+
     it "should be able to define resources of a Model" do
       test1 = TestModel.test1
 
