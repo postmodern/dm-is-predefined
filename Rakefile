@@ -22,8 +22,6 @@ Hoe.spec('dm-predefined') do
   self.extra_dev_deps += [
     ['rspec', '>=1.2.9']
   ]
-
-  self.spec_extras = {:has_rdoc => 'yard'}
 end
 
 # vim: syntax=Ruby
