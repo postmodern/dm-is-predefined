@@ -19,7 +19,9 @@ module DataMapper
       # @return [Object]
       #   The pre-defined resource.
       #
-      def [](name)
+      # @since 0.2.1
+      #
+      def predefined_resource(name)
         name = name.to_sym
         attributes = self.predefined_attributes[name]
 
@@ -64,7 +66,7 @@ module DataMapper
         class_eval %{
           class << self
             define_method(#{name.dump}) do
-              self[#{name.dump}]
+              predefined_resource(#{name.dump})
             end
           end
         }
