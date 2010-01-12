@@ -11,6 +11,18 @@ module DataMapper
 
     module ClassMethods
       #
+      # Returns the names of the predefined resources.
+      #
+      # @return [Array<Symbol>]
+      #   The names of the predefined resources.
+      #
+      # @since 0.2.1
+      #
+      def predefined
+        predefined_attributes.keys
+      end
+
+      #
       # Finds or auto-creates the pre-defined resource with the given name.
       #
       # @param [Symbol, String] name
