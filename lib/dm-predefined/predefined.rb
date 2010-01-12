@@ -31,6 +31,10 @@ module DataMapper
       # @return [Object]
       #   The pre-defined resource.
       #
+      # @raise [UnknownResource]
+      #   Indicates that there are no predefined attributes for the resource
+      #   with the given name.
+      #
       # @since 0.2.1
       #
       def predefined_resource(name)
