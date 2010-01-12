@@ -16,7 +16,7 @@ Hoe.spec('dm-predefined') do
   self.remote_rdoc_dir = ''
 
   self.extra_deps = [
-    ['dm-core', '>=0.10.0']
+    ['dm-core', '>=0.10.2']
   ]
 
   self.extra_dev_deps = [
