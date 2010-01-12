@@ -18,7 +18,7 @@ module DataMapper
       #
       # @since 0.2.1
       #
-      def predefined
+      def predefined_names
         predefined_attributes.keys
       end
 

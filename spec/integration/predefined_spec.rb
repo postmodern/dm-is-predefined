@@ -8,7 +8,7 @@ if (HAS_SQLITE3 || HAS_MYSQL || HAS_POSTGRES)
     end
 
     it "should provide the names of all predefined resources of a Model" do
-      TestModel.predefined.should =~ [:test1, :test2]
+      TestModel.predefined_names.should =~ [:test1, :test2]
     end
 
     it "should be able to define resources of a Model" do
