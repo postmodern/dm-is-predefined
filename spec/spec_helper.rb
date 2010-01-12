@@ -1,7 +1,7 @@
 require 'pathname'
 require 'rubygems'
 
-gem 'rspec', '~>1.2.6'
+gem 'rspec', '>=1.2.9'
 require 'spec'
 
 require Pathname(__FILE__).dirname.expand_path.parent + 'lib/dm-predefined'
