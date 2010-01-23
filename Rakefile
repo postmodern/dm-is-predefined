@@ -11,7 +11,7 @@ Hoe.spec('dm-predefined') do
 
   self.rspec_options += ['--colour', '--format', 'specdoc']
 
-  self.yard_opts += ['--protected']
+  self.yard_options += ['--protected']
   self.remote_rdoc_dir = ''
 
   self.extra_deps += [
