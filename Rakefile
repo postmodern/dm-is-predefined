@@ -19,7 +19,8 @@ Hoe.spec('dm-predefined') do
   ]
 
   self.extra_dev_deps += [
-    ['rspec', '>=1.2.9']
+    ['rspec', '>=1.2.9'],
+    ['yard', '>=0.5.3']
   ]
 end
 
