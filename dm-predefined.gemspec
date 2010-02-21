@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Postmodern"]
-  s.date = %q{2010-02-11}
+  s.date = %q{2010-02-20}
   s.description = %q{A DataMapper plugin for adding predefined resources to Models.}
   s.email = %q{postmodern.mod3@gmail.com}
   s.extra_rdoc_files = [
@@ -25,16 +25,11 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.md",
     "Rakefile",
+    "dm-predefined.gemspec",
     "lib/dm-predefined.rb",
     "lib/dm-predefined/exceptions/unknown_resource.rb",
     "lib/dm-predefined/predefined.rb",
     "lib/dm-predefined/version.rb",
-    "lib/dm-predefined/yard.rb",
-    "lib/dm-predefined/yard/handlers.rb",
-    "lib/dm-predefined/yard/handlers/ruby.rb",
-    "lib/dm-predefined/yard/handlers/ruby/legacy.rb",
-    "lib/dm-predefined/yard/handlers/ruby/legacy/predefine_handler.rb",
-    "lib/dm-predefined/yard/handlers/ruby/predefine_handler.rb",
     "spec/integration/models/test_model.rb",
     "spec/integration/predefined_spec.rb",
     "spec/spec_helper.rb"
