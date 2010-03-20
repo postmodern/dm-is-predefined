@@ -1,4 +1,4 @@
-### 0.2.1 / 2010-03-20
+### 0.2.2 / 2010-03-20
 
 * Switched to Jeweler for the building and releasing of RubyGems.
 * Split `dm-predefined/yard` out into the `yard-dm-predefined` library.
