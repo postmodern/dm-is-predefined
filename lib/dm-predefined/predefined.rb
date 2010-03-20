@@ -28,7 +28,7 @@ module DataMapper
       # @param [Symbol, String] name
       #   The name of the pre-defined resource.
       #
-      # @return [Object]
+      # @return [DataMapper::Resource]
       #   The pre-defined resource.
       #
       # @raise [UnknownResource]
@@ -56,7 +56,7 @@ module DataMapper
       #   The attribute names and values that the predefined resource
       #   should shared.
       #
-      # @return [Object]
+      # @return [DataMapper::Resource]
       #   The predefined resource.
       #
       # @raise [UnknownResource]
