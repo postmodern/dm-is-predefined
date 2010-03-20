@@ -1,3 +1,14 @@
+### 0.2.1 / 2010-03-20
+
+* Switched to Jeweler for the building and releasing of RubyGems.
+* Split `dm-predefined/yard` out into the `yard-dm-predefined` library.
+* Require dm-core >= 0.10.2.
+* Renamed `DataMapper::Predefined::ClassMethods#[]` to
+  {DataMapper::Predefined::ClassMethods#predefined_resource}.
+* Added {DataMapper::Predefined::ClassMethods#predefined_names}.
+* Added {DataMapper::Predefined::ClassMethods#predefined_resource_with}.
+* Added more specs.
+
 ### 0.2.0 / 2009-09-21
 
 * Require Hoe >= 2.3.3.
