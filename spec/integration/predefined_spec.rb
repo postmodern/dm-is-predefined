@@ -38,17 +38,51 @@ if (HAS_SQLITE3 || HAS_MYSQL || HAS_POSTGRES)
       first_test1.id.should == second_test1.id
     end
 
-    it "should provide a generic interface for accessing resources" do
-      test1 = TestModel.predefined_resource(:test1)
+    describe "predefined_resource" do
+      it "should provide a generic interface for accessing resources" do
+        test1 = TestModel.predefined_resource(:test1)
 
-      test1.name.should == 'test1'
-      test1.number.should == 1
+        test1.name.should == 'test1'
+        test1.number.should == 1
+      end
+
+      it "should raise UnknownResource when accessing undefined resources" do
+        lambda {
+          TestModel.predefined_resource(:missing_test)
+        }.should raise_error(DataMapper::Predefined::UnknownResource)
+      end
     end
 
-    it "should raise an UnknownResource exception when accessing undefined resources" do
-      lambda {
-        TestModel.predefined_resource(:missing_test)
-      }.should raise_error(DataMapper::Predefined::UnknownResource)
+    describe "predefined_resource_with" do
+      it "should find resources based on attributes they share" do
+        test2 = TestModel.predefined_resource_with(:name => 'test2', :number => 2)
+
+        test2.name.should == 'test2'
+      end
+
+      it "should raise UnknownResource if no resource shares all attribute names" do
+        lambda {
+          TestModel.predefined_resource_with(:number => 1, :missing => 'yo')
+        }.should raise_error(DataMapper::Predefined::UnknownResource)
+      end
+
+      it "should raise UnknownResource if no resource shares any attribute names" do
+        lambda {
+          TestModel.predefined_resource_with(:missing => 1, :typo => 'yo')
+        }.should raise_error(DataMapper::Predefined::UnknownResource)
+      end
+
+      it "should raise UnknownResource if no resource shares all attribute values" do
+        lambda {
+          TestModel.predefined_resource_with(:number => 2, :optional => 'yo')
+        }.should raise_error(DataMapper::Predefined::UnknownResource)
+      end
+
+      it "should raise UnknownResource if no resource shares any attribute values" do
+        lambda {
+          TestModel.predefined_resource_with(:number => 3, :optional => 'bla')
+        }.should raise_error(DataMapper::Predefined::UnknownResource)
+      end
     end
   end
 end
