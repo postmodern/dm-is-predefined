@@ -48,6 +48,37 @@ module DataMapper
         self.first_or_create(attributes)
       end
 
+      #
+      # Finds or auto-creates the predefined resource which shares the
+      # given attributes.
+      #
+      # @param [Hash{Symbol => Object}] desired_attributes
+      #   The attribute names and values that the predefined resource
+      #   should shared.
+      #
+      # @return [Object]
+      #   The predefined resource.
+      #
+      # @raise [UnknownResource]
+      #   Could not find a predefined resource that shared all of the
+      #   desired attributes.
+      #
+      # @since 0.2.1
+      #
+      def predefined_resource_with(desired_attributes={})
+        self.predefined_attributes.each do |name,attributes|
+          shares_attributes = desired_attributes.all? do |key,value|
+            key = key.to_sym
+
+            attributes.has_key?(key) && (attributes[key] == value)
+          end
+
+          return predefined_resource(name) if shares_attributes
+        end
+
+        raise(UnknownResource,"could not find a predefined resource which shared the given attributes",caller)
+      end
+
       protected
 
       @@predefined_attributes = {}
