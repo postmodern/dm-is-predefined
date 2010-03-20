@@ -1,6 +1,5 @@
 # dm-predefined
 
-* [dm-predefined.rubyforge.org](http://dm-predefined.rubyforge.org/)
 * [github.com/postmodern/dm-predefined](http://github.com/postmodern/dm-predefined)
 * Postmodern (postmodern.mod3 at gmail.com)
 
