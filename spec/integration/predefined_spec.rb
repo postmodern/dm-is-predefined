@@ -21,7 +21,7 @@ if (HAS_SQLITE3 || HAS_MYSQL || HAS_POSTGRES)
       test1.body.should == %{This is a test.}
     end
 
-    it "should be able to define resources with empty attributes" do
+    it "should be able to define resources with missing attributes" do
       test2 = TestModel.test2
 
       test2.should_not be_nil
@@ -47,7 +47,7 @@ if (HAS_SQLITE3 || HAS_MYSQL || HAS_POSTGRES)
 
     it "should raise an UnknownResource exception when accessing undefined resources" do
       lambda {
-        TestModel.predefined_resource(:test3)
+        TestModel.predefined_resource(:missing_test)
       }.should raise_error(DataMapper::Predefined::UnknownResource)
     end
   end
