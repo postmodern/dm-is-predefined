@@ -108,6 +108,10 @@ module DataMapper
       def predefine(name,attributes={})
         name = name.to_s
 
+        if attributes.empty?
+          raise(ArgumentError,"Cannot predefine a resource with no attributes",caller)
+        end
+
         self.predefined_attributes[name.to_sym] = attributes
 
         class_eval %{
