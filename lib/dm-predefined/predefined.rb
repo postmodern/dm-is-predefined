@@ -42,7 +42,7 @@ module DataMapper
         attributes = self.predefined_attributes[name]
 
         unless attributes
-          raise(UnknownResource,"the resource '#{name}' was not predefined",caller)
+          raise(UnknownResource,"The resource '#{name}' was not predefined",caller)
         end
 
         self.first_or_create(attributes)
@@ -76,7 +76,7 @@ module DataMapper
           return predefined_resource(name) if shares_attributes
         end
 
-        raise(UnknownResource,"could not find a predefined resource which shared the given attributes",caller)
+        raise(UnknownResource,"Could not find a predefined resource which shared the given attributes",caller)
       end
 
       protected
