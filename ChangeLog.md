@@ -1,3 +1,7 @@
+### 0.2.3 / 2010-04-01
+
+* Store the predefined attributes in an instance variable in the Model.
+
 ### 0.2.2 / 2010-03-20
 
 * Switched to Jeweler for the building and releasing of RubyGems.
