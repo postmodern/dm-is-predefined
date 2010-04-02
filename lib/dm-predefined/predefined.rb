@@ -81,8 +81,6 @@ module DataMapper
 
       protected
 
-      @@predefined_attributes = {}
-
       #
       # All pre-defined resources of the model.
       #
@@ -90,7 +88,7 @@ module DataMapper
       #   The Hash of pre-defined resources and their attributes.
       #
       def predefined_attributes
-        @@predefined_attributes
+        @predefined_attributes ||= {}
       end
 
       #
