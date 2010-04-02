@@ -7,6 +7,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = 'dm-predefined'
     gem.version = DataMapper::Predefined::VERSION
+    gem.license = 'MIT'
     gem.summary = %Q{A DataMapper plugin for adding predefined resources to Models.}
     gem.description = %Q{A DataMapper plugin for adding predefined resources to Models.}
     gem.email = 'postmodern.mod3@gmail.com'
