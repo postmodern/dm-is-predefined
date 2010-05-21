@@ -11,10 +11,8 @@ end
 
 require 'rake'
 require 'jeweler'
-require './lib/dm-predefined/version.rb'
 Jeweler::Tasks.new do |gem|
   gem.name = 'dm-predefined'
-  gem.version = DataMapper::Predefined::VERSION
   gem.license = 'MIT'
   gem.summary = %Q{A DataMapper plugin for adding predefined resources to Models.}
   gem.description = %Q{A DataMapper plugin for adding predefined resources to Models.}
