@@ -1,7 +1,10 @@
+require 'dm-is-predefined'
+
 class TestModel
 
   include DataMapper::Resource
-  include DataMapper::Predefined
+
+  is :predefined
 
   # Primary key of the test model
   property :id, Serial

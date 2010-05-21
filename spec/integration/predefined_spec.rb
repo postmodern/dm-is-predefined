@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'integration/models/test_model'
 
-describe DataMapper::Predefined do
+describe DataMapper::Is::Predefined do
   before(:all) do
     TestModel.auto_migrate!
   end
@@ -52,7 +52,7 @@ describe DataMapper::Predefined do
     it "should raise UnknownResource when accessing undefined resources" do
       lambda {
         TestModel.predefined_resource(:missing_test)
-      }.should raise_error(DataMapper::Predefined::UnknownResource)
+      }.should raise_error(DataMapper::Is::Predefined::UnknownResource)
     end
   end
 
@@ -66,25 +66,25 @@ describe DataMapper::Predefined do
     it "should raise UnknownResource if no resource shares all attribute names" do
       lambda {
         TestModel.predefined_resource_with(:number => 1, :missing => 'yo')
-      }.should raise_error(DataMapper::Predefined::UnknownResource)
+      }.should raise_error(DataMapper::Is::Predefined::UnknownResource)
     end
 
     it "should raise UnknownResource if no resource shares any attribute names" do
       lambda {
         TestModel.predefined_resource_with(:missing => 1, :typo => 'yo')
-      }.should raise_error(DataMapper::Predefined::UnknownResource)
+      }.should raise_error(DataMapper::Is::Predefined::UnknownResource)
     end
 
     it "should raise UnknownResource if no resource shares all attribute values" do
       lambda {
         TestModel.predefined_resource_with(:number => 2, :optional => 'yo')
-      }.should raise_error(DataMapper::Predefined::UnknownResource)
+      }.should raise_error(DataMapper::Is::Predefined::UnknownResource)
     end
 
     it "should raise UnknownResource if no resource shares any attribute values" do
       lambda {
         TestModel.predefined_resource_with(:number => 3, :optional => 'bla')
-      }.should raise_error(DataMapper::Predefined::UnknownResource)
+      }.should raise_error(DataMapper::Is::Predefined::UnknownResource)
     end
   end
 end

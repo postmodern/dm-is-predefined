@@ -13,7 +13,7 @@ require 'spec'
 require 'dm-core/spec/setup'
 require 'dm-core/spec/lib/adapter_helpers'
 
-require 'dm-predefined'
+require 'dm-is-predefined'
 
 DataMapper::Spec.setup
 

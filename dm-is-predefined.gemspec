@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{dm-predefined}
+  s.name = %q{dm-is-predefined}
   s.version = "0.2.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -27,10 +27,10 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
-    "dm-predefined.gemspec",
-    "lib/dm-predefined.rb",
-    "lib/dm-predefined/exceptions/unknown_resource.rb",
-    "lib/dm-predefined/predefined.rb",
+    "dm-is-predefined.gemspec",
+    "lib/dm-is-predefined.rb",
+    "lib/dm-is-predefined/is/exceptions/unknown_resource.rb",
+    "lib/dm-is-predefined/is/predefined.rb",
     "spec/integration/models/test_model.rb",
     "spec/integration/predefined_spec.rb",
     "spec/spec_helper.rb"

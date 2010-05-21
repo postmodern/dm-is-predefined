@@ -1,4 +1,4 @@
-# dm-predefined
+# dm-is-predefined
 
 * [github.com/postmodern/dm-predefined](http://github.com/postmodern/dm-predefined)
 * Postmodern (postmodern.mod3 at gmail.com)
@@ -10,12 +10,13 @@ A DataMapper plugin for adding predefined resources to Models.
 ## Example
 
     require 'dm-core'
-    require 'dm-predefined'
+    require 'dm-is-predefined'
   
     class Licence
   
       include DataMapper::Resource
-      include DataMapper::Predefined
+
+      is :predefined
     
       # Name of the Licence
       property :name, String
@@ -49,7 +50,7 @@ A DataMapper plugin for adding predefined resources to Models.
 
 ## Install
 
-    $ sudo gem install dm-predefined
+    $ sudo gem install dm-is-predefined
 
 ## License
 

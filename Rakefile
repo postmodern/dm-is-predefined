@@ -12,7 +12,7 @@ end
 require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  gem.name = 'dm-predefined'
+  gem.name = 'dm-is-predefined'
   gem.license = 'MIT'
   gem.summary = %Q{A DataMapper plugin for adding predefined resources to Models.}
   gem.description = %Q{A DataMapper plugin for adding predefined resources to Models.}
