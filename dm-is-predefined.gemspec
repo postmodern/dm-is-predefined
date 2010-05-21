@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
     "spec/spec_helper.rb"
   ]
   s.has_rdoc = %q{yard}
-  s.homepage = %q{http://github.com/postmodern/dm-predefined}
+  s.homepage = %q{http://github.com/postmodern/dm-is-predefined}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}

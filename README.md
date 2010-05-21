@@ -1,6 +1,6 @@
 # dm-is-predefined
 
-* [github.com/postmodern/dm-predefined](http://github.com/postmodern/dm-predefined)
+* [github.com/postmodern/dm-is-predefined](http://github.com/postmodern/dm-is-predefined)
 * Postmodern (postmodern.mod3 at gmail.com)
 
 ## Description

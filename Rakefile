@@ -17,7 +17,7 @@ Jeweler::Tasks.new do |gem|
   gem.summary = %Q{A DataMapper plugin for adding predefined resources to Models.}
   gem.description = %Q{A DataMapper plugin for adding predefined resources to Models.}
   gem.email = 'postmodern.mod3@gmail.com'
-  gem.homepage = 'http://github.com/postmodern/dm-predefined'
+  gem.homepage = 'http://github.com/postmodern/dm-is-predefined'
   gem.authors = ['Postmodern']
   gem.has_rdoc = 'yard'
 end
