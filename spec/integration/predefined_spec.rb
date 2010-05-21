@@ -8,7 +8,7 @@ if (HAS_SQLITE3 || HAS_MYSQL || HAS_POSTGRES)
     end
 
     it "should define the @predefined_attributes instance variable" do
-      TestModel.instance_variables.should include('@predefined_attributes')
+      TestModel.should be_instance_variable_defined(:@predefined_attributes)
     end
 
     it "should provide the names of all predefined resources of a Model" do
