@@ -1,3 +1,9 @@
+### 0.3.0 / 2010-07-08
+
+* Require DataMapper 1.0.0.
+* Renamed dm-predefined to dm-is-predefined.
+* Renamed `DataMapper::Predefined` to {DataMapper::Is::Predefined}.
+
 ### 0.2.3 / 2010-04-01
 
 * Store the predefined attributes in an instance variable in the Model.
