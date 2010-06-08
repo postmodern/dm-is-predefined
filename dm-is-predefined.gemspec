@@ -39,7 +39,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/postmodern/dm-is-predefined}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{A DataMapper plugin for adding predefined resources to Models.}
   s.test_files = [
     "spec/integration/models/test_model.rb",
@@ -51,7 +51,7 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<activesupport>, ["~> 3.0.0.beta3"])
       s.add_runtime_dependency(%q<dm-core>, ["~> 1.0.0"])
       s.add_development_dependency(%q<rake>, ["~> 0.8.7"])
