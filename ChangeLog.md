@@ -8,9 +8,9 @@
 * Split `dm-predefined/yard` out into the `yard-dm-predefined` library.
 * Require dm-core >= 0.10.2.
 * Renamed `DataMapper::Predefined::ClassMethods#[]` to
-  {DataMapper::Predefined::ClassMethods#predefined_resource}.
-* Added {DataMapper::Predefined::ClassMethods#predefined_names}.
-* Added {DataMapper::Predefined::ClassMethods#predefined_resource_with}.
+  `DataMapper::Predefined::ClassMethods#predefined_resource`.
+* Added `DataMapper::Predefined::ClassMethods#predefined_names`.
+* Added `DataMapper::Predefined::ClassMethods#predefined_resource_with`.
 * Added more specs.
 
 ### 0.2.0 / 2009-09-21
