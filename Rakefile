@@ -11,6 +11,7 @@ end
 
 require 'rake'
 require 'jeweler'
+
 Jeweler::Tasks.new do |gem|
   gem.name = 'dm-is-predefined'
   gem.license = 'MIT'
