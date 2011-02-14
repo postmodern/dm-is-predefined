@@ -47,7 +47,7 @@ A DataMapper plugin for adding predefined resources to Models.
 
 ## Requirements
 
-* [dm-core](http://github.com/datamapper/dm-core/) ~> 1.0.0
+* [dm-core](http://github.com/datamapper/dm-core/) ~> 1.0
 
 ## Install
 
