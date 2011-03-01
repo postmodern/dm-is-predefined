@@ -1,8 +1,8 @@
 # dm-is-predefined
 
-* [github.com/postmodern/dm-is-predefined](http://github.com/postmodern/dm-is-predefined)
-* [github.com/postmodern/dm-is-predefined/issues](http://github.com/postmodern/dm-is-predefined/issues)
-* Postmodern (postmodern.mod3 at gmail.com)
+* [Source](http://github.com/postmodern/dm-is-predefined)
+* [Issues](http://github.com/postmodern/dm-is-predefined/issues)
+* [Email](mailto:postmodern.mod3 at gmail.com)
 
 ## Description
 
