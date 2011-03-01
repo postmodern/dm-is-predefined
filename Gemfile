@@ -85,15 +85,14 @@ source :rubygems
 DATAMAPPER = 'http://github.com/datamapper'
 DM_VERSION = '~> 1.0'
 DO_VERSION = '~> 0.10.2'
-DM_DO_ADAPTERS = %w[ sqlite postgres mysql oracle sqlserver ]
+DM_DO_ADAPTERS = %w[sqlite postgres mysql oracle sqlserver]
 RAILS = 'http://github.com/rails/rails.git'
 
 if ENV['EXTLIB']
-  gem 'extlib',         '~> 0.9.15', :git => '#{DATAMAPPER}/extlib.git'
+  gem 'extlib',         '~> 0.9.15', :git => "#{DATAMAPPER}/extlib.git",
+                                     :require => nil
 else
-  gem 'activesupport',  '~> 3.0.0', :git => RAILS,
-                                    :branch => '3-0-stable',
-                                    :require => nil
+  gem 'activesupport',  '~> 3.0.4', :require => nil
 end
 
 gem 'dm-core',	DM_VERSION, :git => "#{DATAMAPPER}/dm-core.git"
