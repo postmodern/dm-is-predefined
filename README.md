@@ -2,6 +2,7 @@
 
 * [Source](http://github.com/postmodern/dm-is-predefined)
 * [Issues](http://github.com/postmodern/dm-is-predefined/issues)
+* [Documentation](http://rubydoc.info/gems/dm-is-predefined/frames)
 * [Email](mailto:postmodern.mod3 at gmail.com)
 
 ## Description
