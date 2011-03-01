@@ -93,6 +93,7 @@ if ENV['EXTLIB']
                                      :require => nil
 else
   gem 'activesupport',  '~> 3.0.4', :require => nil
+  gem 'i18n',           '~> 0.5.0'
 end
 
 gem 'dm-core',	DM_VERSION, :git => "#{DATAMAPPER}/dm-core.git"
