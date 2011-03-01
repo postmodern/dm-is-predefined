@@ -1,3 +1,9 @@
+### 0.3.1 / 2011-02-28
+
+* Require dm-core ~> 1.0.
+* Switched from Jeweler to [Ore](http://github.com/ruby-ore/ore#readme).
+* Upgraded to RSpec2.
+
 ### 0.3.0 / 2010-07-08
 
 * Require DataMapper 1.0.0.
