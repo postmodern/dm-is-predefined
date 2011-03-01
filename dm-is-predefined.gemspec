@@ -9,7 +9,7 @@ rescue NameError
     require 'ore/specification'
     retry
   rescue LoadError
-    STDERR.puts "The 'dm-is-predefined.gemspec' file requires Ore."
+    STDERR.puts "The '#{__FILE__}' file requires Ore."
     STDERR.puts "Run `gem install ore-core` to install Ore."
   end
 end
