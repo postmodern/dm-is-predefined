@@ -56,4 +56,3 @@ A DataMapper plugin for adding predefined resources to Models.
 ## License
 
 See {file:LICENSE.txt} for license information.
-
