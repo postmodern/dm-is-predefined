@@ -55,4 +55,6 @@ A DataMapper plugin for adding predefined resources to Models.
 
 ## License
 
+Copyright (c) 2008-2011 Hal Brodigan
+
 See {file:LICENSE.txt} for license information.
