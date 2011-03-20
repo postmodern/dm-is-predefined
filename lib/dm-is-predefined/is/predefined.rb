@@ -4,7 +4,7 @@ module DataMapper
   module Is
     module Predefined
       #
-      # Fired when your plugin gets included into Resource.
+      # Fired when your plugin gets included into a Model.
       #
       def is_predefined
         extend DataMapper::Is::Predefined::ClassMethods
