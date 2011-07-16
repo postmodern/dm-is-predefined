@@ -17,7 +17,7 @@ module DataMapper
         # @return [Array<Symbol>]
         #   The names of the predefined resources.
         #
-        # @since 0.2.1
+        # @since 0.4.0
         #
         def predefined
           predefined_attributes.keys
@@ -27,6 +27,8 @@ module DataMapper
         # @see predefined
         #
         # @deprecated Will be removed in 1.0.0.
+        #
+        # @since 0.2.1
         #
         def predefined_names
           predefined
