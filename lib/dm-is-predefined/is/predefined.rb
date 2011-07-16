@@ -80,7 +80,7 @@ module DataMapper
         #
         def predefined_resource(name,extra_attributes={})
           name = name.to_sym
-          attributes = self.predefined_attributes[name]
+          attributes = predefined_attributes[name]
 
           unless attributes
             raise(UnknownResource,"The resource '#{name}' was not predefined",caller)
@@ -107,7 +107,7 @@ module DataMapper
         # @since 0.2.1
         #
         def predefined_resource_with(desired_attributes={})
-          self.predefined_attributes.each do |name,attributes|
+          predefined_attributes.each do |name,attributes|
             shares_attributes = desired_attributes.all? do |key,value|
               key = key.to_sym
 
@@ -142,7 +142,7 @@ module DataMapper
             raise(ArgumentError,"Cannot predefine a resource with no attributes",caller)
           end
 
-          self.predefined_attributes[name.to_sym] = attributes
+          predefined_attributes[name.to_sym] = attributes
 
           class_eval %{
             class << self
