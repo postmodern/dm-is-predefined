@@ -19,8 +19,17 @@ module DataMapper
         #
         # @since 0.2.1
         #
-        def predefined_names
+        def predefined
           predefined_attributes.keys
+        end
+
+        #
+        # @see predefined
+        #
+        # @deprecated Will be removed in 1.0.0.
+        #
+        def predefined_names
+          predefined
         end
 
         #
