@@ -66,6 +66,9 @@ module DataMapper
         # @param [Symbol, String] name
         #   The name of the pre-defined resource.
         #
+        # @param [Hash{Symbol => Object}] extra_attributes
+        #   Additional attributes to add to the predefined resource.
+        #
         # @return [DataMapper::Resource]
         #   The pre-defined resource.
         #
@@ -75,7 +78,7 @@ module DataMapper
         #
         # @since 0.2.1
         #
-        def predefined_resource(name)
+        def predefined_resource(name,extra_attributes={})
           name = name.to_sym
           attributes = self.predefined_attributes[name]
 
@@ -83,7 +86,7 @@ module DataMapper
             raise(UnknownResource,"The resource '#{name}' was not predefined",caller)
           end
 
-          self.first_or_create(attributes)
+          self.first_or_create(attributes.merge(extra_attributes))
         end
 
         #
