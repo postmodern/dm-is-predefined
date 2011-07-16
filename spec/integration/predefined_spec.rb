@@ -14,6 +14,10 @@ describe DataMapper::Is::Predefined do
     TestModel.predefined_names.should =~ [:test1, :test2]
   end
 
+  it "should determine if a predefined resource was defined" do
+    TestModel.should be_predefined(:test2)
+  end
+
   it "should be able to define resources of a Model" do
     test1 = TestModel.test1
 

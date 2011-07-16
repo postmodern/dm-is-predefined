@@ -24,6 +24,21 @@ module DataMapper
         end
 
         #
+        # Determines if a resource was predefined.
+        #
+        # @param [Symbol, String] name
+        #   The name of the predefined resource to search for.
+        #
+        # @return [Boolean]
+        #   Specifies whether the resource was predefined.
+        #
+        # @since 0.4.0
+        #
+        def predefined?(name)
+          predefined_attributes.has_key?(name.to_sym)
+        end
+
+        #
         # Finds or auto-creates the pre-defined resource with the given name.
         #
         # @param [Symbol, String] name
