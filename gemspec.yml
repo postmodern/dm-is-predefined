@@ -1,5 +1,5 @@
 name: dm-is-predefined
-version: 0.3.1
+version: 0.4.0
 summary: DataMapper plugin for adding predefined resources to models.
 description:
   A DataMapper plugin for adding predefined resources to Models.
