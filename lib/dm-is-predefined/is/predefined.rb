@@ -12,6 +12,16 @@ module DataMapper
 
       module ClassMethods
         #
+        # All pre-defined resources of the model.
+        #
+        # @return [Hash{Symbol => Hash}]
+        #   The Hash of pre-defined resources and their attributes.
+        #
+        def predefined_attributes
+          @predefined_attributes ||= {}
+        end
+
+        #
         # Returns the names of the predefined resources.
         #
         # @return [Array<Symbol>]
@@ -108,16 +118,6 @@ module DataMapper
         end
 
         protected
-
-        #
-        # All pre-defined resources of the model.
-        #
-        # @return [Hash{Symbol => Hash}]
-        #   The Hash of pre-defined resources and their attributes.
-        #
-        def predefined_attributes
-          @predefined_attributes ||= {}
-        end
 
         #
         # Defines a new pre-defined resource for the model.
