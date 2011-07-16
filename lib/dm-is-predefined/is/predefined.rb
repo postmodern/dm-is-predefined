@@ -83,7 +83,7 @@ module DataMapper
           attributes = predefined_attributes[name]
 
           unless attributes
-            raise(UnknownResource,"The resource '#{name}' was not predefined",caller)
+            raise(UnknownResource,"The resource '#{name}' was not predefined")
           end
 
           self.first_or_create(attributes.merge(extra_attributes))
@@ -117,7 +117,7 @@ module DataMapper
             return predefined_resource(name) if shares_attributes
           end
 
-          raise(UnknownResource,"Could not find a predefined resource which shared the given attributes",caller)
+          raise(UnknownResource,"Could not find a predefined resource which shared the given attributes")
         end
 
         protected
@@ -139,7 +139,7 @@ module DataMapper
           name = name.to_s
 
           if attributes.empty?
-            raise(ArgumentError,"Cannot predefine a resource with no attributes",caller)
+            raise(ArgumentError,"Cannot predefine a resource with no attributes")
           end
 
           predefined_attributes[name.to_sym] = attributes
