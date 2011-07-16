@@ -50,7 +50,8 @@ module DataMapper
         end
 
         #
-        # Finds or auto-creates the pre-defined resource with the given name.
+        # Finds or auto-creates the pre-defined resource with the given
+        # name.
         #
         # @param [Symbol, String] name
         #   The name of the pre-defined resource.
@@ -59,8 +60,8 @@ module DataMapper
         #   The pre-defined resource.
         #
         # @raise [UnknownResource]
-        #   Indicates that there are no predefined attributes for the resource
-        #   with the given name.
+        #   Indicates that there are no predefined attributes for the
+        #   resource with the given name.
         #
         # @since 0.2.1
         #
@@ -128,7 +129,8 @@ module DataMapper
         #   The attributes for the pre-defined resource.
         #
         # @return [Hash]
-        #   The attributes that will be assigned to the pre-defined resource.
+        #   The attributes that will be assigned to the pre-defined
+        #   resource.
         #
         def predefine(name,attributes={})
           name = name.to_s
