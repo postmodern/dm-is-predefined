@@ -34,7 +34,7 @@ module DataMapper
         end
 
         #
-        # @see predefined
+        # @see #predefined
         #
         # @deprecated Will be removed in 1.0.0.
         #
@@ -76,24 +76,26 @@ module DataMapper
         #   Indicates that there are no predefined attributes for the
         #   resource with the given name.
         #
+        # @deprecated
+        #   Please use {#get} instead. This method will be removed in 1.0.0.
+        #
         # @since 0.2.1
         #
-        def predefined_resource(name,extra_attributes={})
+        def predefined_resource(name)
           name = name.to_sym
-          attributes = predefined_attributes[name]
 
-          unless attributes
+          if predefined?(name)
+            get(name)
+          else
             raise(UnknownResource,"The resource '#{name}' was not predefined")
           end
-
-          self.first_or_create(attributes.merge(extra_attributes))
         end
 
         #
         # Finds or auto-creates the predefined resource which shares the
         # given attributes.
         #
-        # @param [Hash{Symbol => Object}] desired_attributes
+        # @param [Hash{Symbol => Object}] query
         #   The attribute names and values that the predefined resource
         #   should shared.
         #
@@ -106,18 +108,48 @@ module DataMapper
         #
         # @since 0.2.1
         #
-        def predefined_resource_with(desired_attributes={})
-          predefined_attributes.each do |name,attributes|
-            shares_attributes = desired_attributes.all? do |key,value|
-              key = key.to_sym
-
-              attributes.has_key?(key) && (attributes[key] == value)
-            end
-
-            return predefined_resource(name) if shares_attributes
+        def predefined_resource_with(query={})
+          if (resource = first(query))
+            return resource
           end
 
+          # if the resource wasn't found, search for matching
+          # predefined attributes
+          attributes = predefined_attributes.values.find do |attributes|
+            query.all? { |k,v| attributes.has_key?(k) && attributes[k] == v }
+          end
+
+          # create the resource using the predefined attributes
+          return create(attributes) if attributes
+
+          # no pre-existing or predefined resource matching the query
           raise(UnknownResource,"Could not find a predefined resource which shared the given attributes")
+        end
+
+        #
+        # Allows transparently getting predefined resources, alongwith
+        # existing resources.
+        #
+        # @param [Symbol, Object] key
+        #   The name of the predefined resource or primary-key of a
+        #   pre-existing resource.
+        #
+        # @return [DataMapper::Resource, nil]
+        #   The matching resource.
+        #
+        # @since 0.4.0
+        #
+        # @api public
+        #
+        def get(key)
+          case key
+          when Symbol
+            if (attributes = predefined_attributes[key])
+              first_or_create(attributes)
+            end
+          else
+            super(key)
+          end
         end
 
         protected
@@ -136,23 +168,21 @@ module DataMapper
         #   resource.
         #
         def predefine(name,attributes={})
-          name = name.to_s
+          name = name.to_sym
 
           if attributes.empty?
             raise(ArgumentError,"Cannot predefine a resource with no attributes")
           end
 
-          predefined_attributes[name.to_sym] = attributes
+          predefined_attributes[name] = attributes
 
           class_eval %{
             class << self
-              define_method(#{name.dump}) do
-                predefined_resource(#{name.dump})
-              end
+              define_method(#{name.inspect}) { get(#{name.inspect}) }
             end
           }
 
-          attributes
+          return attributes
         end
       end # ClassMethods
     end # Predefined

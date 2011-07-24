@@ -11,7 +11,7 @@ describe DataMapper::Is::Predefined do
   end
 
   it "should provide the names of all predefined resources of a Model" do
-    TestModel.predefined.should =~ [:test1, :test2]
+    TestModel.predefined.should =~ [:test1, :test2, :test3]
   end
 
   it "should determine if a predefined resource was defined" do
@@ -67,28 +67,19 @@ describe DataMapper::Is::Predefined do
       test2.name.should == 'test2'
     end
 
-    it "should raise UnknownResource if no resource shares all attribute names" do
-      lambda {
-        TestModel.predefined_resource_with(:number => 1, :missing => 'yo')
-      }.should raise_error(DataMapper::Is::Predefined::UnknownResource)
-    end
-
-    it "should raise UnknownResource if no resource shares any attribute names" do
-      lambda {
-        TestModel.predefined_resource_with(:missing => 1, :typo => 'yo')
-      }.should raise_error(DataMapper::Is::Predefined::UnknownResource)
-    end
-
-    it "should raise UnknownResource if no resource shares all attribute values" do
-      lambda {
-        TestModel.predefined_resource_with(:number => 2, :optional => 'yo')
-      }.should raise_error(DataMapper::Is::Predefined::UnknownResource)
-    end
-
     it "should raise UnknownResource if no resource shares any attribute values" do
       lambda {
-        TestModel.predefined_resource_with(:number => 3, :optional => 'bla')
+        TestModel.predefined_resource_with(:number => 100, :optional => 'bla')
       }.should raise_error(DataMapper::Is::Predefined::UnknownResource)
+    end
+  end
+
+  describe "#get" do
+    it "should allow querying predefined resources by name" do
+      test2 = TestModel.get(:test2)
+
+      test2.name.should == 'test2'
+      test2.number.should == 2
     end
   end
 end
