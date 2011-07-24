@@ -76,19 +76,16 @@ module DataMapper
         #   Indicates that there are no predefined attributes for the
         #   resource with the given name.
         #
-        # @deprecated
-        #   Please use {#get} instead. This method will be removed in 1.0.0.
-        #
         # @since 0.2.1
         #
         def predefined_resource(name)
           name = name.to_sym
 
-          if predefined?(name)
-            get(name)
-          else
+          unless predefined?(name)
             raise(UnknownResource,"The resource '#{name}' was not predefined")
           end
+
+          return first_or_create(predefined_attributes[name])
         end
 
         #
@@ -155,9 +152,7 @@ module DataMapper
         def get(key)
           case key
           when Symbol
-            if (attributes = predefined_attributes[key])
-              first_or_create(attributes)
-            end
+            predefined_resource(key)
           else
             super(key)
           end
