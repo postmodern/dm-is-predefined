@@ -150,8 +150,7 @@ module DataMapper
         # @api public
         #
         def get(key)
-          case key
-          when Symbol
+          if key.kind_of?(Symbol)
             predefined_resource(key)
           else
             super(key)
