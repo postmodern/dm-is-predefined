@@ -106,9 +106,9 @@ module DataMapper
         #   Could not find a predefined resource that shared all of the
         #   desired attributes.
         #
-        # @since 0.2.1
+        # @since 0.4.0
         #
-        def predefined_resource_with(query={})
+        def first_predefined_resource(query={})
           if (resource = first(query))
             return resource
           end
@@ -124,6 +124,17 @@ module DataMapper
 
           # no pre-existing or predefined resource matching the query
           raise(UnknownResource,"Could not find a predefined resource which shared the given attributes")
+        end
+
+        #
+        # @since 0.2.1
+        #
+        # @deprecated
+        #   Will be removed in 1.0.0. Please use {#first_predefined_resource}
+        #   instead.
+        #
+        def predefined_resource_with(query={})
+          first_predefined_resource(query)
         end
 
         #
