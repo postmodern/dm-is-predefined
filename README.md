@@ -34,20 +34,21 @@ A DataMapper plugin for adding predefined resources to Models.
   
     end
   
-    Licence.gpl2
-    # => #<Licence: id: 1, name: "GPL-2", url: "http://www.gnu.org/copyleft/gpl.html">
-  
-    Licence.predefined_resource(:mit)
-    # => #<Licence: id: 2, name: "MIT">
-
-    License.predefined_resource_with(:name => 'GPL-2')
-    # => #<License: id: 1, name: "GPL-2", url: "http://www.gnu.org/copyleft/gpl.html">
-
+ 
     License.predefined?(:gpl2)
     # => true
 
     License.predefined
     # => [:gpl2, :mit]
+
+    Licence.predefined_resource(:mit)
+    # => #<Licence: id: 2, name: "MIT">
+
+    License.first_predefined_resource(:name => 'GPL-2')
+    # => #<License: id: 1, name: "GPL-2", url: "http://www.gnu.org/copyleft/gpl.html">
+
+    Licence.gpl2
+    # => #<Licence: id: 1, name: "GPL-2", url: "http://www.gnu.org/copyleft/gpl.html">
 
 ## Requirements
 
