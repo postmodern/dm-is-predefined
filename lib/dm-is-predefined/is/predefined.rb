@@ -10,6 +10,8 @@ module DataMapper
       #   If the model already includes `DataMapper::Migrations`, then
       #   {MigrationMethods} will be extended into the Model.
       #
+      # @api private
+      #
       def is_predefined
         extend DataMapper::Is::Predefined::ClassMethods
 
@@ -19,6 +21,9 @@ module DataMapper
         end
       end
 
+      #
+      # @since 0.4.0
+      #
       module MigrationMethods
         #
         # Auto-migrates the model, then creates all predefined resources.
@@ -27,6 +32,8 @@ module DataMapper
         #   The repository to perform the migrations within.
         #
         # @return [true]
+        #
+        # @api public
         #
         def auto_migrate!(repository_name=self.repository_name)
           result = super(repository_name)
@@ -41,12 +48,15 @@ module DataMapper
         end
 
         #
-        # Auto-upgrades the model, then creates any missing predefined resources.
+        # Auto-upgrades the model, then creates any missing predefined
+        # resources.
         #
         # @param [Symbol] repository_name
         #   The repository to perform the upgrade within.
         #
         # @return [true]
+        #
+        # @api public
         #
         def auto_upgrade!(repository_name=self.repository_name)
           result = super(repository_name)
@@ -68,6 +78,8 @@ module DataMapper
         # @return [Hash{Symbol => Hash}]
         #   The Hash of pre-defined resources and their attributes.
         #
+        # @api semipublic
+        #
         def predefined_attributes
           @predefined_attributes ||= {}
         end
@@ -79,6 +91,8 @@ module DataMapper
         #   The names of the predefined resources.
         #
         # @since 0.4.0
+        #
+        # @api public
         #
         def predefined
           predefined_attributes.keys
@@ -106,6 +120,8 @@ module DataMapper
         #
         # @since 0.4.0
         #
+        # @api public
+        #
         def predefined?(name)
           predefined_attributes.has_key?(name.to_sym)
         end
@@ -128,6 +144,8 @@ module DataMapper
         #   resource with the given name.
         #
         # @since 0.2.1
+        #
+        # @api public
         #
         def predefined_resource(name)
           name = name.to_sym
@@ -155,6 +173,8 @@ module DataMapper
         #   desired attributes.
         #
         # @since 0.4.0
+        #
+        # @api public
         #
         def first_predefined_resource(query={})
           if (resource = first(query))
@@ -222,6 +242,8 @@ module DataMapper
         # @return [Hash]
         #   The attributes that will be assigned to the pre-defined
         #   resource.
+        #
+        # @api public
         #
         def predefine(name,attributes={})
           name = name.to_sym
