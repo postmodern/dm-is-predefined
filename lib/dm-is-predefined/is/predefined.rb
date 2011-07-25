@@ -6,8 +6,59 @@ module DataMapper
       #
       # Fired when your plugin gets included into a Model.
       #
+      # @note
+      #   If the model already includes `DataMapper::Migrations`, then
+      #   {MigrationMethods} will be extended into the Model.
+      #
       def is_predefined
         extend DataMapper::Is::Predefined::ClassMethods
+
+        if defined?(DataMapper::Migrations) &&
+           included_modules.include?(DataMapper::Migrations)
+          extend MigrationMethods
+        end
+      end
+
+      module MigrationMethods
+        #
+        # Auto-migrates the model, then creates all predefined resources.
+        #
+        # @param [Symbol] repository_name
+        #   The repository to perform the migrations within.
+        #
+        # @return [true]
+        #
+        def auto_migrate!(repository_name=self.repository_name)
+          result = super(repository_name)
+
+          DataMapper.repository(repository_name) do
+            predefined_attributes.each_value do |attributes|
+              create(attributes)
+            end
+          end
+
+          return result
+        end
+
+        #
+        # Auto-upgrades the model, then creates any missing predefined resources.
+        #
+        # @param [Symbol] repository_name
+        #   The repository to perform the upgrade within.
+        #
+        # @return [true]
+        #
+        def auto_upgrade!(repository_name=self.repository_name)
+          result = super(repository_name)
+
+          DataMapper.repository(repository_name) do
+            predefined_attributes.each_value do |attributes|
+              first_or_create(attributes)
+            end
+          end
+
+          return result
+        end
       end
 
       module ClassMethods

@@ -1,9 +1,44 @@
 require 'spec_helper'
 require 'integration/models/test_model'
+require 'integration/models/migrated_model'
 
 describe DataMapper::Is::Predefined do
   before(:all) do
     TestModel.auto_migrate!
+  end
+
+  context "migrations" do
+    it "should extend MigrationMethods, if Migrations are included" do
+      TestModel.should_not be_kind_of(DataMapper::Is::Predefined::MigrationMethods)
+      MigratedModel.should be_kind_of(DataMapper::Is::Predefined::MigrationMethods)
+    end
+
+    it "should create all predefined resources after auto_migrate!" do
+      MigratedModel.auto_migrate!
+
+      resources = MigratedModel.all
+
+      resources[0].id.should == 1
+      resources[0].name.should == 'test1'
+
+      resources[1].id.should == 2
+      resources[1].name.should == 'test2'
+    end
+
+    it "should create missing predefined resources after auto_upgrade!" do
+      MigratedModel.first(:name => 'test2').destroy!
+
+      MigratedModel.property :extra, String
+      MigratedModel.auto_upgrade!
+
+      resources = MigratedModel.all
+
+      resources[0].id.should == 1
+      resources[0].name.should == 'test1'
+
+      resources[1].id.should == 3
+      resources[1].name.should == 'test2'
+    end
   end
 
   it "should define the @predefined_attributes instance variable" do
