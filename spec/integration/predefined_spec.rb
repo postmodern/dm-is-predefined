@@ -97,14 +97,14 @@ describe DataMapper::Is::Predefined do
 
   describe "predefined_resource_with" do
     it "should find resources based on attributes they share" do
-      test2 = TestModel.first_predefined_resource(:name => 'test2', :number => 2)
+      test2 = TestModel.predefined_resource_with(:name => 'test2', :number => 2)
 
       test2.name.should == 'test2'
     end
 
     it "should raise UnknownResource if no resource shares any attribute values" do
       lambda {
-        TestModel.first_predefined_resource(:number => 100, :optional => 'bla')
+        TestModel.predefined_resource_with(:number => 100, :optional => 'bla')
       }.should raise_error(DataMapper::Is::Predefined::UnknownResource)
     end
   end
