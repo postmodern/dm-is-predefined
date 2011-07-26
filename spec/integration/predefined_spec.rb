@@ -46,7 +46,7 @@ describe DataMapper::Is::Predefined do
   end
 
   it "should provide the names of all predefined resources of a Model" do
-    TestModel.predefined.should =~ [:test1, :test2, :test3]
+    TestModel.predefined.should =~ [:test1, :test2]
   end
 
   it "should determine if a predefined resource was defined" do
