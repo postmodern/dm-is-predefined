@@ -38,12 +38,7 @@ module DataMapper
         def auto_migrate!(repository_name=self.repository_name)
           result = super(repository_name)
 
-          DataMapper.repository(repository_name) do
-            predefined_attributes.each_value do |attributes|
-              create(attributes)
-            end
-          end
-
+          predefine!(repository_name)
           return result
         end
 
@@ -61,12 +56,7 @@ module DataMapper
         def auto_upgrade!(repository_name=self.repository_name)
           result = super(repository_name)
 
-          DataMapper.repository(repository_name) do
-            predefined_attributes.each_value do |attributes|
-              first_or_create(attributes)
-            end
-          end
-
+          predefine!(repository_name)
           return result
         end
       end
@@ -196,6 +186,24 @@ module DataMapper
 
           # no pre-existing or predefined resource matching the query
           raise(UnknownResource,"Could not find a predefined resource which shared the given attributes")
+        end
+
+        #
+        # Creates the predefined resources.
+        #
+        # @param [Symbol] repository_name
+        #   The repository to perform the upgrade within.
+        #
+        # @since 0.4.0
+        #
+        # @api public
+        #
+        def predefine!(repository_name=self.repository_name)
+          DataMapper.repository(repository_name) do
+            predefined_attributes.each_value do |attributes|
+              first_or_create(attributes)
+            end
+          end
         end
 
         protected
