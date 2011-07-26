@@ -108,13 +108,4 @@ describe DataMapper::Is::Predefined do
       }.should raise_error(DataMapper::Is::Predefined::UnknownResource)
     end
   end
-
-  describe "#get" do
-    it "should allow querying predefined resources by name" do
-      test2 = TestModel.get(:test2)
-
-      test2.name.should == 'test2'
-      test2.number.should == 2
-    end
-  end
 end

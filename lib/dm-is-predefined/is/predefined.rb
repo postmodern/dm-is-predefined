@@ -172,11 +172,15 @@ module DataMapper
         #   Could not find a predefined resource that shared all of the
         #   desired attributes.
         #
-        # @since 0.4.0
+        # @deprecated
+        #   Will be removed in 1.0.0. Instead, search {#predefined_attributes}
+        #   directly.
+        #
+        # @since 0.2.1
         #
         # @api public
         #
-        def first_predefined_resource(query={})
+        def predefined_resource_with(query={})
           if (resource = first(query))
             return resource
           end
@@ -192,40 +196,6 @@ module DataMapper
 
           # no pre-existing or predefined resource matching the query
           raise(UnknownResource,"Could not find a predefined resource which shared the given attributes")
-        end
-
-        #
-        # @since 0.2.1
-        #
-        # @deprecated
-        #   Will be removed in 1.0.0. Please use {#first_predefined_resource}
-        #   instead.
-        #
-        def predefined_resource_with(query={})
-          first_predefined_resource(query)
-        end
-
-        #
-        # Allows transparently getting predefined resources, alongwith
-        # existing resources.
-        #
-        # @param [Symbol, Object] key
-        #   The name of the predefined resource or primary-key of a
-        #   pre-existing resource.
-        #
-        # @return [DataMapper::Resource, nil]
-        #   The matching resource.
-        #
-        # @since 0.4.0
-        #
-        # @api public
-        #
-        def get(key)
-          if key.kind_of?(Symbol)
-            predefined_resource(key)
-          else
-            super(key)
-          end
         end
 
         protected
