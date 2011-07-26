@@ -234,7 +234,9 @@ module DataMapper
 
           class_eval %{
             class << self
-              define_method(#{name.inspect}) { get(#{name.inspect}) }
+              define_method(#{name.inspect}) do
+                predefined_resource(#{name.inspect})
+              end
             end
           }
 
