@@ -1,3 +1,18 @@
+### 0.4.0 / 2011-07-26
+
+* Added {DataMapper::Is::Predefined::MigrationMethods}.
+  * Overrides `auto_migrate!` and `auto_upgrade!` to auto-predefine
+    the resources after auto-migrations.
+* Added {DataMapper::Is::Predefined::ClassMethods#predefine!}.
+* Added {DataMapper::Is::Predefined::ClassMethods#predefined}.
+* Added {DataMapper::Is::Predefined::ClassMethods#predefined?}.
+* Added {DataMapper::Is::Predefined::ClassMethods#first_or_predefined}.
+* Made {DataMapper::Is::Predefined::ClassMethods#predefined_attributes} public.
+* Deprecated {DataMapper::Is::Predefined::ClassMethods#predefined_resource_with}
+  in favor of {DataMapper::Is::Predefined::ClassMethods#first_or_predefined}.
+* Deprecated {DataMapper::Is::Predefined::ClassMethods#predefined_names}
+  in favor of {DataMapper::Is::Predefined::ClassMethods#predefined}.
+
 ### 0.3.1 / 2011-02-28
 
 * Require dm-core ~> 1.0.
