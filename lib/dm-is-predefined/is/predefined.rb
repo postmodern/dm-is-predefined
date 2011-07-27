@@ -151,41 +151,56 @@ module DataMapper
         # Finds or auto-creates the predefined resource which shares the
         # given attributes.
         #
-        # @param [Hash{Symbol => Object}] query
+        # @param [Hash{Symbol => Object}] conditions
+        #   Query conditions.
+        #
+        # @param [Hash{Symbol => Object}] attributes
         #   The attribute names and values that the predefined resource
         #   should shared.
         #
-        # @return [DataMapper::Resource]
+        # @return [DataMapper::Resource, nil]
         #   The predefined resource.
+        #
+        # @since 0.4.0
+        #
+        # @api public
+        #
+        def first_or_predefined(conditions={},attributes=conditions)
+          if (resource = first(conditions))
+            return resource
+          end
+
+          # if the resource wasn't found, search for matching
+          # predefined attributes
+          attributes = predefined_attributes.values.find do |attrs|
+            attrs.all? do |name,value|
+              attributes.has_key?(name) && (attributes[name] == value)
+            end
+          end
+
+          # create the resource using the predefined attributes
+          create(attributes) if attributes
+        end
+
         #
         # @raise [UnknownResource]
         #   Could not find a predefined resource that shared all of the
         #   desired attributes.
         #
         # @deprecated
-        #   Will be removed in 1.0.0. Instead, search {#predefined_attributes}
-        #   directly.
+        #   Will be removed in 1.0.0. Use {#first_or_predefined} instead.
         #
         # @since 0.2.1
         #
         # @api public
         #
         def predefined_resource_with(query={})
-          if (resource = first(query))
-            return resource
+          unless (resource = first_or_predefined(query))
+            # no pre-existing or predefined resource matching the query
+            raise(UnknownResource,"Could not find a predefined resource which shared the given attributes")
           end
 
-          # if the resource wasn't found, search for matching
-          # predefined attributes
-          attributes = predefined_attributes.values.find do |attributes|
-            query.all? { |k,v| attributes.has_key?(k) && attributes[k] == v }
-          end
-
-          # create the resource using the predefined attributes
-          return create(attributes) if attributes
-
-          # no pre-existing or predefined resource matching the query
-          raise(UnknownResource,"Could not find a predefined resource which shared the given attributes")
+          return resource
         end
 
         #

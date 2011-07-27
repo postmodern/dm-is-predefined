@@ -95,13 +95,30 @@ describe DataMapper::Is::Predefined do
     end
   end
 
-  describe "predefined_resource_with" do
+  describe "first_or_predefined" do
     it "should find resources based on attributes they share" do
-      test2 = TestModel.predefined_resource_with(:name => 'test2', :number => 2)
+      test2 = TestModel.first_or_predefined(:name => 'test2', :number => 2)
 
       test2.name.should == 'test2'
     end
 
+    it "should allow specifying different query and predefined attributes" do
+      test2 = TestModel.first_or_predefined(
+        {:name.like => '%test2%'},
+        {:name => 'test2', :number => 2}
+      )
+
+      test2.name.should == 'test2'
+    end
+
+    it "should return nil if no resource shares any attribute values" do
+      resource = TestModel.first_or_predefined(:number => 100, :optional => 'bla')
+      
+      resource.should be_nil
+    end
+  end
+
+  describe "predefined_resource_with" do
     it "should raise UnknownResource if no resource shares any attribute values" do
       lambda {
         TestModel.predefined_resource_with(:number => 100, :optional => 'bla')
