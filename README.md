@@ -56,7 +56,7 @@ A DataMapper plugin for adding predefined resources to Models.
 
 ## Install
 
-    $ sudo gem install dm-is-predefined
+    $ gem install dm-is-predefined
 
 ## License
 
