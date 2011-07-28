@@ -1,4 +1,4 @@
-### 0.4.0 / 2011-07-26
+### 0.4.0 / 2011-07-28
 
 * Added {DataMapper::Is::Predefined::MigrationMethods}.
   * Overrides `auto_migrate!` and `auto_upgrade!` to auto-predefine
