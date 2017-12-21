@@ -123,9 +123,6 @@ module DataMapper
         # @param [Symbol, String] name
         #   The name of the pre-defined resource.
         #
-        # @param [Hash{Symbol => Object}] extra_attributes
-        #   Additional attributes to add to the predefined resource.
-        #
         # @return [DataMapper::Resource]
         #   The pre-defined resource.
         #
